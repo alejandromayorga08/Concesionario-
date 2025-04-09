@@ -1,0 +1,13 @@
+public class Motocicleta extends Auto {
+    private int cilindrada;
+
+    public Motocicleta(String marca, String modelo, int año, double precioBase, int cilindrada) {
+        super(marca, modelo, año, precioBase);
+        this.cilindrada = cilindrada;
+    }
+
+    @Override
+    public String getDetalles() {
+        return "Motocicleta- Marca: "+marca+", Modelo: "+modelo+", Año: "+año+", Precio base:  "+precioBase+", Cilindrada: "+cilindrada+", Precio final: "+calularPrecioFinal();
+    }
+}

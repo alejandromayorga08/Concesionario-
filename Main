@@ -1,0 +1,59 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+    private static final Scanner teclado = new Scanner(System.in);
+    private static final ArrayList <Vehiculo> vehiculos = new ArrayList<>();
+
+    public static void main(String[] args) {
+       int opc;
+
+        do{
+            motrarMenu();
+            System.out.println("Seleccione una opcion: ");
+            opc= teclado.nextInt();
+
+            switch (opc){
+                case 1 -> agregarVehiculo();
+                case 2 -> mostrarVehiculos();
+                case 3 -> System.out.println("Saliendo del sistema.......");
+                default -> System.out.println("Opcion inválida. ");
+            }
+        }while(opc !=3);
+    }
+
+    private static void motrarMenu() {
+        System.out.println("-----GESTION DE VEHICULOS-----");
+        System.out.println("1. Agregar vehiculo");
+        System.out.println("2. Mostrar Vehiculos");
+        System.out.println("3. Salir");
+    }
+    private static void agregarVehiculo() {
+        System.out.println(" ¿Que tipo de vehiculo desea agregar ?");
+        System.out.println("1. Auto");
+        System.out.println("2. Motocicleta");
+        int tipo = teclado.nextInt();
+
+        System.out.println("Marca: ");
+        String marca = teclado.next();
+        System.out.println("Modelo: ");
+        String modelo = teclado.next();
+        System.out.println("Año:  ");
+        int año = teclado.nextInt();
+        System.out.println("Precio base: ");
+        double precioBase = teclado.nextDouble();
+
+        if(tipo==1){
+            System.out.println("Numero de puertas: ");
+            int numpuertas = teclado.nextInt();
+            vehiculos.add(new Auto(marca, modelo, año, precioBase, numpuertas));
+        }else if(tipo==2){
+            System.out.println("Cilindrada: ");
+            int cilindrada = teclado.nextInt();
+            vehiculos.add(new Motocicleta(marca,modelo,año,precioBase, cilindrada));
+        }else{
+            System.out.println("TIPO INVALIDO ");
+        }
+    }
+
+}

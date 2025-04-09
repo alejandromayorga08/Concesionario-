@@ -1,0 +1,25 @@
+abstract class Auto {
+    protected String marca;
+    protected String modelo;
+    protected int año;
+    protected double precioBase;
+
+    public Auto() {
+    }
+
+    public Auto(String marca, String modelo, int año, double precioBase) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.año = año;
+        this.precioBase = precioBase;
+    }
+
+    public double calularPrecioFinal(){
+         return precioBase * 1.10;
+    }
+
+    public abstract String getDetalles();
+
+
+
+}
